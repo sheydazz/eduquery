@@ -1,4 +1,4 @@
-const promptTitleComponent = () => {
+const promptTitle = () => {
     return (
         <div className="flex flex-col items-center">
             <h1 className="text-7xl">EduQuery</h1>
@@ -7,4 +7,4 @@ const promptTitleComponent = () => {
     );
 };
 
-export default promptTitleComponent;
+export default promptTitle;
