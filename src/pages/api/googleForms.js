@@ -42,7 +42,8 @@ export default async function handler(req, res) {
       console.error('Error al crear o compartir el formulario:', error);
       res.status(500).json({ mensaje: 'Error al crear o compartir el formulario', error });
     }
-  } else {
+  }
+   else {
     res.setHeader('Allow', ['POST']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }

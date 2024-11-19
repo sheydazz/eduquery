@@ -7,7 +7,7 @@ const FormCreator = ({ onFormCreated }) => {
     const handleCreateForm = async () => {
       try {
         // Haciendo la solicitud POST a la API
-        const response = await fetch('/api/google-forms', {
+        const response = await fetch('/api/googleForms', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
