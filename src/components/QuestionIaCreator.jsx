@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const QuestionIaCreator = () => {
-  return (
-    <div>QuestionIaCreator</div>
-  )
-}
+  return <div>QuestionIaCreator</div>;
+};
 
-export default QuestionIaCreator
+export default QuestionIaCreator;

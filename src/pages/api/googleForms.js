@@ -19,31 +19,31 @@ export default async function handler(req, res) {
 
       const formsApp = google.forms({ version: 'v1', auth });
       const driveApp = google.drive({ version: 'v3', auth });
-       
+
       // Crear el formulario
-      const newForm = { info: { title:  title } };
+      const newForm = { info: { title: title } };
       const formResponse = await formsApp.forms.create({ requestBody: newForm });
 
       // ID del formulario
       const formId = formResponse.data.formId;
-     
+
       // Compartir el formulario 
       await driveApp.permissions.create({
         fileId: formId,
         requestBody: {
           role: 'writer',
           type: 'user',
-          emailAddress:process.env.USER_DRIVE_EMAIL ,
+          emailAddress: process.env.USER_DRIVE_EMAIL,
         },
       });
-      
+
       res.status(200).json({ id: formId, link: formResponse.data.responderUri });
     } catch (error) {
       console.error('Error al crear o compartir el formulario:', error);
       res.status(500).json({ mensaje: 'Error al crear o compartir el formulario', error });
     }
   }
-   else {
+  else {
     res.setHeader('Allow', ['POST']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }

@@ -1,11 +1,9 @@
-"use client"
-import React from 'react'
-import GenerateFormLayout from './GenerateFormLayout'
+"use client";
+import React from "react";
+import GenerateFormLayout from "./GenerateFormLayout";
 
 const GenerateForm = () => {
-  return (
-  <GenerateFormLayout/>
-  )
-}
+  return <GenerateFormLayout />;
+};
 
-export default GenerateForm
+export default GenerateForm;
