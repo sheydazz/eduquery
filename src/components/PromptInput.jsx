@@ -1,3 +1,4 @@
+//parte logica es la que se envia a llamar en el layout principal
 "use client"
 import { useState } from "react";
 import InputPrincipal from "./InputPrincipal";
@@ -18,6 +19,8 @@ const PromptInput = () => {
       console.log("Texto enviado:", inputValue); // Imprime el valor en la consola
     }
   };
+
+  
 
   return (
     <div>

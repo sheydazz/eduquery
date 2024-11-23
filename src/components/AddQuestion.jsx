@@ -11,12 +11,16 @@ const AddQuestionComponent = () => {
 
   // Función para incrementar el contador
   const incrementCount = () => {
-    setCount((prevCount) => prevCount + 1);
+    setCount(count + 1);
   };
 
   // Función para disminuir el contador
   const decrementCount = () => {
-    setCount((prevCount) => prevCount - 1);
+    console.log(setCount)
+    if (count > 0) {
+      setCount(count - 1);
+      
+    }
   };
 
   // Función para alternar la visibilidad del menú
@@ -37,10 +41,6 @@ const AddQuestionComponent = () => {
         <HiArrowCircleDownButton onClick={decrementCount} />
       </div>
 
-      {/* Menú desplegable */}
-      <div>
-        <AddMenuQuestion isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      </div>
     </div>
   );
 };
