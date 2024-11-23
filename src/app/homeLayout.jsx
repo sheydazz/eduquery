@@ -3,6 +3,7 @@
 import PromptInput from "@/components/PromptInput";
 import PromptTitle from "@/components/PromptTitle";
 import AddQuestion from "@/components/AddQuestion";
+import ButtonGenareteDemo from "@/components/ButtonGenareteDemo";
 
 const HomeLayout = () => {
   return (
@@ -10,6 +11,7 @@ const HomeLayout = () => {
       <PromptTitle />
       <PromptInput />
       <AddQuestion />
+      <ButtonGenareteDemo/>
     </div>
   );
 };
