@@ -10,6 +10,7 @@ export const CreateIaQuestion = async (prompt, numeropreguntas) => {
         },
         body: JSON.stringify({ prompt, numeropreguntas }),
       });
+    
   
       if (!response.ok) {
         throw new Error('Error al crear el cuestionario');
