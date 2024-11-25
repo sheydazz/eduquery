@@ -1,26 +1,26 @@
-import React from 'react'
-import { CreateIaQuestion } from '@/utils/createQuestionIa';
-import Link from 'next/link';
-import { useState } from 'react';
-const ButtonGenareteDemo = () => {
-  const [questions, setQuestions] = useState(null);
+import React from "react";
+import { CreateIaQuestion } from "@/utils/createQuestionIa";
+
+const ButtonGenerateDemo = ({ prompt, cantidad, onGenerate }) => {
+
   const handleGenerateQuestions = async () => {
-    try {
-      const prompt = 'Historia de la tecnología'; // Define tu prompt
-      const numeropreguntas = 5; // Define el número de preguntas
-      const generatedQuestions = await CreateIaQuestion(prompt, numeropreguntas);
-      setQuestions(generatedQuestions); // Guardar las preguntas en el estado
-    } catch (error) {
-      console.error('Error al generar preguntas:', error);
-    }
+    console.log(prompt)
+    console.log(cantidad)
+    //try {
+      // Genera preguntas usando el prompt y la cantidad
+      //const generatedQuestions = await CreateIaQuestion(prompt, cantidad);
+      //console.log("Preguntas generadas:", generatedQuestions);
+    //} catch (error) {
+      //console.error("Error al generar preguntas:", error);
+
+    //}
   };
+
   return (
     <div>
-        <Link href="/generate-form">
-            <button onClick={handleGenerateQuestions}>generar preguntas con ia</button>
-        </Link>
+      <button onClick={handleGenerateQuestions}>generar preguntas con ia</button>
     </div>
-  )
-}
+  );
+};
 
-export default ButtonGenareteDemo 
+export default ButtonGenerateDemo;
