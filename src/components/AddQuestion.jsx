@@ -38,7 +38,7 @@ const AddQuestionComponent = () => {
 
 
       {/* Botón para generar preguntas */}
-      <ButtonGenerateDemo prompt={inputValue} cantidad={count} onGenerate={handleGenerateQuestions} />
+      <ButtonGenerateDemo prompt={inputValue} cantidad={count} />
 
     </div>
   );

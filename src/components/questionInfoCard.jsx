@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-
 import { MdDelete } from "react-icons/md";
 
-const questionInfoCard = ({ generatedQuestions }) => {
+const QuestionInfoCard = ({ generatedQuestions }) => {
   return (
     <div className="card-container flex flex-col bg-white p-[20px] max-w-[400px] shadow-lg border rounded-md">
       <div>
@@ -13,7 +12,7 @@ const questionInfoCard = ({ generatedQuestions }) => {
         {generatedQuestions.options.map((option, j) => (
           <div key={j} className="question-response flex flex-col gap-[10px]">
             <span>
-              {j + 1} {option}
+              {j + 1}. {option}
             </span>
           </div>
         ))}
@@ -25,4 +24,5 @@ const questionInfoCard = ({ generatedQuestions }) => {
   );
 };
 
-export default questionInfoCard;
+export default QuestionInfoCard;
+
