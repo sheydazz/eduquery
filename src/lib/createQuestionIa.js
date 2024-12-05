@@ -1,4 +1,4 @@
-// src/utils/CreateIaQuestionIa.js
+// src/libs/CreateIaQuestionIa.js
 
 export const CreateIaQuestion = async (prompt, numeropreguntas) => {
     try {
