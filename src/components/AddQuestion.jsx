@@ -3,7 +3,7 @@
 import HiArrowCircleUpButton from "./HiArrowCircleUpButton";
 import HiArrowCircleDownButton from "./HiArrowCircleDownButton";
 import InputPrincipal from "./InputPrincipal";
-import ButtonGenerateDemo from "./ButtonGenareteDemo"; // Importamos el botón
+import ButttonGenerateQuestion from "./ButtonGenareteQuestion"
 
 import { useState } from "react";
 
@@ -38,7 +38,7 @@ const AddQuestionComponent = () => {
 
 
       {/* Botón para generar preguntas */}
-      <ButtonGenerateDemo prompt={inputValue} cantidad={count} />
+      <ButttonGenerateQuestion prompt={inputValue} cantidad={count} />
 
     </div>
   );
