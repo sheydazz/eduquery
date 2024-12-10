@@ -17,9 +17,7 @@ const QuestionInfoCard = ({ generatedQuestion,index}) => {
           </div>
         ))}
       </div>
-      <button className="bg-red-700 border rounded-full w-[40px] flex justify-center">
-        <MdDelete className="w-[40px] h-[40px] p-[10px] text-white" />
-      </button>
+
     </div>
   );
 };
