@@ -1,44 +1,43 @@
 "use client";
+
 import React from "react";
 import FormCreator from "@/components/FormCreator";
 import FormLink from "@/components/FormLink";
 import QuestionInfoCard from "@/components/questionInfoCard";
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { useForm } from "@/context/Form";
+
+
 const GenerateForm = () => {
+  //estados de las preguntas
+  const { questions} = useForm();
   //estados del formulario
   const [formData, setFormData] = useState(null);
-
+  
+  //funcion que crea el formulario
   const handleFormCreated = (data) => {
     setFormData(data);
   };
-
-  // traer la data del queryparamet
-  const searchParams = useSearchParams();
-  const dataString = searchParams.get("prompt"); // Captura el valor del queryParam 'prompt'
-  const decodedQueryParam  = decodeURIComponent(dataString)
-  //parsear el objeto
-  const parsedObject = JSON.parse(decodedQueryParam);
-  // const cleanedResponse = JSON.parse(parsedObject.cleanedResponse);
+  //formatear la respuesta de la ia  para las card
+  const questionObject= Object.values(questions)
+  const questionForm=questionObject[0]
+  const questionArray=JSON.parse(questionForm)
   
-  console.log(parsedObject);
- 
-
-
-   
   return (
     <div className="w-full h-full bg-gray-200 flex flex-col ">
       <div className="w-full h-32 bg-white shadow-lg flex items-center justify-center mb-[40px]">
         <h1 className="text-4xl">Formulario generado ✨</h1>
       </div>
-       {/* Renderiza las tarjetas
-       <div className="flex gap-[40px]">
-        {questionData[1]?.map((question, index) => (
-          <QuestionInfoCard key={index} generatedQuestions={question} />
+
+      <div className="flex gap-[40px] flex-wrap">
+        {questionArray[0][1].map((question, index) => (
+          <QuestionInfoCard key={index} generatedQuestion={question} index={index+1}  />
         ))}
-      </div> */}
+      </div>
+
       <FormCreator onFormCreated={handleFormCreated} />
+
       {formData ? <FormLink formData={formData}></FormLink> : null}
     </div>
   );
