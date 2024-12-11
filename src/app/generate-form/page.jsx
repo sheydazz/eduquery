@@ -21,8 +21,11 @@ const GenerateForm = () => {
   };
   //formatear la respuesta de la ia  para las card
   const questionObject= Object.values(questions)
+  // console.log(questionObject);
   const questionForm=questionObject[0]
+  // console.log(questionForm);
   const questionArray=JSON.parse(questionForm)
+  // console.log(questionArray);
   
   return (
     <div className="w-full h-full bg-gray-200 flex flex-col ">
