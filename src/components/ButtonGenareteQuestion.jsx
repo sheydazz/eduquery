@@ -14,7 +14,7 @@ const ButtonGenerateQuestion = ({ prompt, cantidad }) => {
     try {
       // Genera preguntas usando el prompt y la cantidad
       const generatedQuestions = await CreateIaQuestion(prompt, cantidad);
-      console.log("Preguntas generadas boton:", generatedQuestions);
+      debug.log("Preguntas generadas boton:", generatedQuestions);
       // Agregar la respuesta generada al contexto
       setQuestions(generatedQuestions);
       // Redirige a detalle-form con las preguntas generadas

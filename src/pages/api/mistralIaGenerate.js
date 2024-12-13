@@ -1,7 +1,6 @@
 import { Mistral } from "@mistralai/mistralai";
 
 const apiKey = process.env.MISTRAL_API_KEY;
-
 const client = new Mistral({ apiKey: apiKey });
 
 export default async function handler(req, res) {
@@ -9,6 +8,7 @@ export default async function handler(req, res) {
   if (!prompt) {
     return res.status(400).json({ message: "Falta el prompt en la solicitud" });
   }
+
   try {
     // Solicitud a Mistral para que genere las preguntas
     const chatResponse = await client.chat.complete({
@@ -34,18 +34,23 @@ export default async function handler(req, res) {
         },
       ],
     });
-    //respuesta de la ia
+
+    // Respuesta de la IA
     const generatedQuestions = chatResponse.choices[0].message.content;
-    // Limpieza inicial de saltos de línea y comillas escapadas
+
+    // Limpieza inicial de la respuesta
     const cleanedResponse = generatedQuestions
-      .replace(/\\n/g, "") // Eliminar saltos de línea escapados
-      .replace(/\\'/g, "'") // Reemplazar comillas simples escapadas
-      .replace(/\\"/g, '"'); // Reemplazar comillas dobles escapadas
+      .replace(/\n/g, "") // Eliminar saltos de línea escapados
+      .replace(/\'/g, "'") // Reemplazar comillas simples escapadas
+      .replace(/\"/g, '"'); // Reemplazar comillas dobles escapadas
 
-    console.log("log de la respuesta limpiada",cleanedResponse);
+    console.log("Respuesta limpiada:", cleanedResponse);
 
-    // Si se parsea con éxito, devolver el objeto
-    return res.status(200).json({ cleanedResponse });
+    // Parsear a objeto JSON
+    const parsedResponse = JSON.parse(cleanedResponse);
+
+    // Devolver el array con solo las dos posiciones
+    return res.status(200).json(parsedResponse);
   } catch (error) {
     console.error("Error al generar preguntas:", error);
     return res
