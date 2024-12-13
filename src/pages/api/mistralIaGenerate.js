@@ -5,7 +5,8 @@ const apiKey = process.env.MISTRAL_API_KEY;
 const client = new Mistral({ apiKey: apiKey });
 
 export default async function handler(req, res) {
-  const { prompt, numeropreguntas } = req.body;
+  const { prompt, questionsNumber } = req.body;
+
   if (!prompt) {
     return res.status(400).json({ message: "Falta el prompt en la solicitud" });
   }
@@ -17,15 +18,16 @@ export default async function handler(req, res) {
         {
           role: "user",
           content:
-            `crea un cuestionario con este tema ${prompt} tu respuesta tiene que seguir
-            esta logica 
+            `crea un cuestionario con este tema ${prompt} no presentes tu respuesta con cosas como
+            "Aqui esta la respuesta", no les des formato adicional.
+            solo sigue el siguiente formato:
 
-            Quiero que me devuelvas un array con 2 items
+            Devuelve un array con 2 items
             el primero debe ser un objeto de js y debe tener los atributos de:
             formTitle, formDescription
             
-            el segunto item debe ser un array con ${questionsNumber} objetos js que deben contener los
-            atributos de 
+            el segunto item debe ser un array con unicamente ${questionsNumber} objetos
+            js que deben contener los atributos de 
             title, type, correctAnswer, options, 
             type debe ser "RADIO"
             options debe ser un array así: [{'value': 'option'}, {'value': 'option'}]
@@ -33,8 +35,8 @@ export default async function handler(req, res) {
 
             inventa cualquier formulario.
 
-            IMPORTANTE: no digas mas nada, no presentes las respuestas con cosas como
-            "Aqui esta la respuesta", solo devuelve el array`,
+            IMPORTANTE: no digas mas nada, no presentes la respuesta con cosas como "Aqui
+            esta la respuesta", no le des formato adicional, solo devuelve el array`,
         },
       ],
     });
