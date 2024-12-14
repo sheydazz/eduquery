@@ -45,12 +45,13 @@ const ButtonGenerateQuestion = ({ prompt, cantidad }) => {
 
   return (
     <div className="mt-5">
-      <button 
+      <button
         onClick={handleGenerateQuestions}
-        className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all duration-300"
+        className="px-6 py-3 text-white font-semibold rounded-lg shadow-md bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all duration-300"
       >
         Generar preguntas con IA
       </button>
+
     </div>
     
       );

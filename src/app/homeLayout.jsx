@@ -6,10 +6,6 @@ import MenuHome from "@/components/MenuHome";
 
 const HomeLayout = () => {
   return (
-    <div className="flex h-screen">
-      <div className="flex flex-row">
-        <MenuHome />
-      </div>
 
     
       <div className="flex flex-1 justify-center items-center">
@@ -18,7 +14,7 @@ const HomeLayout = () => {
           <AddQuestion />
         </div>
       </div>
-    </div>
+    
   );
 };
 
