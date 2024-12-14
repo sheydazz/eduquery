@@ -3,7 +3,8 @@ export const formatQuestion = (questionData) => {
 		title,
 		type,
 		correctAnswer,
-		options
+		options,
+		options2
 	} = questionData;
 
 	let questionItem;
@@ -23,7 +24,7 @@ export const formatQuestion = (questionData) => {
 					},
 					choiceQuestion: {
 						type: "RADIO",
-						options: options || [
+						options: options2 || [
 							{ value: "N" },
 							{ value: "N" },
 							{ value: "N" },
