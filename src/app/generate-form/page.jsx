@@ -21,7 +21,7 @@ const GenerateForm = () => {
       </div>
 
       <div className="flex gap-[40px] flex-wrap pl-4 pr-4 justify-center">
-        {questions[0][1].map((question, index) => (
+        {questions[1].map((question, index) => (
           <QuestionInfoCard 
             key={index} 
             generatedQuestion={question} 

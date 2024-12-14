@@ -16,21 +16,23 @@ export default async function handler(req, res) {
       messages: [
         {
           role: "user",
-          content: `crea un cuestionario con este tema ${prompt} tu respuesta tiene que seguir esta logica crea ${numeropreguntas} preguntas tu respuesta debera seguir este formato, no deberas devolver mas nada que no sea el formato, la respuesta ira tal cual el formato  [
-  {
-    "formTitle": "aqui va el nombre del cuestionario",
-    "formDescription": "aquí va una breve descripcion"
-  },
-  [
-    {
-      "title": "aqui va la pregunta",
-      "type": "en este puedes poner RADIO O CHECKBOX",
-      "correctAnswer": "la espuesta correcta deberá ir aca ",
-      "options": ["option 1", "option2", "ption 3", "option n"]
-    },
-    
-  ]
-]  `,
+          content:`crea un cuestionario con este tema ${prompt} y solo ${numeropreguntas}
+          preguntas tu respuesta debera seguir este formato, no deberas devolver mas nada
+          que no sea el formato, la respuesta ira tal cual el formato solo debes devolver un array
+          [
+            {
+              "formTitle": "aqui va el nombre del cuestionario",
+              "formDescription": "aquí va una breve descripcion"
+            },
+            [
+              {
+                "title": "aqui va la pregunta",
+                "type": "RADIO",
+                "correctAnswer": "la respuesta correcta deberá ir aca",
+                "options": ["option 1", "option2", "option 3", "option n"]
+              },
+            ]
+          ]`,
         },
       ],
     });
