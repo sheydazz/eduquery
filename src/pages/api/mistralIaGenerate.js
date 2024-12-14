@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       messages: [
         {
           role: "user",
-          content: `crea un cuestionario con este tema ${prompt} y solo ${numeropreguntas}
+          content:`crea un cuestionario con este tema ${prompt} y solo ${numeropreguntas}
           preguntas tu respuesta debera seguir este formato, no deberas devolver mas nada
           que no sea el formato, la respuesta ira tal cual el siguiente formato
           [

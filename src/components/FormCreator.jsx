@@ -10,7 +10,8 @@ const FormCreator = ({ onFormCreated }) => {
   const [isLoading, setIsLoading] = useState(false); // Estado de carga
   const formatedInfo = formatformInfo(questions[0]);
   const formatedQuestions = [];
-
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para abrir/cerrar modal
+  const [email, setEmail] = useState(""); // Estado para el correo electrónico
   questions[1].forEach((question) => {
     formatedQuestions.push(formatQuestion(question));
   });
@@ -18,6 +19,7 @@ const FormCreator = ({ onFormCreated }) => {
   // Create form
   const handleCreateForm = async () => {
     setIsLoading(true); // Inicia el estado de carga
+    setIsModalOpen(false);
     try {
       const response = await fetch("/api/googleForms", {
         method: "POST",
@@ -32,6 +34,7 @@ const FormCreator = ({ onFormCreated }) => {
             },
           },
           items: formatedQuestions,
+          email:email
         }),
       });
 
@@ -47,6 +50,13 @@ const FormCreator = ({ onFormCreated }) => {
     } finally {
       setIsLoading(false); // Detén el estado de carga
     }
+  };
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -74,13 +84,41 @@ const FormCreator = ({ onFormCreated }) => {
       ) : (
         <>
           <button
-            onClick={handleCreateForm}
+            onClick={handleOpenModal}
             className="bg-violet-700 m-5 border rounded-full w-52 h-16 text-white flex justify-center items-center text-xl gap-2"
           >
             Generar <SiGoogleforms />
           </button>
         </>
       )}
+       {isModalOpen && (
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+              <div className="bg-white rounded-lg p-6 w-80">
+                <h2 className="text-lg font-semibold mb-4">Ingresa tu correo</h2>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full border border-gray-300 rounded-lg p-2 mb-4 text-black"
+                  placeholder="correo@example.com"
+                />
+                <div className="flex justify-end gap-2">
+                  <button
+                    onClick={handleCloseModal}
+                    className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    onClick={handleCreateForm}
+                    className="bg-violet-700 text-white px-4 py-2 rounded-lg"
+                  >
+                    Generar
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
     </div>
   );
 };

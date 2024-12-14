@@ -7,7 +7,7 @@ export default async function handler(req, res) {
       const formInfo = req.body.info;
       const formSettings = req.body.settings;
       const formItems = req.body.items;
-
+      const email= req.body.email;
       // Configuración de autenticación OAuth2
       const auth = new google.auth.GoogleAuth({
         credentials: {
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
       // ID del formulario
       const formId = formResponse.data.formId;
-
+      
       // Define update
       const update = {
         requests: [
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         requestBody: {
           role: "writer",
           type: "user",
-          emailAddress: process.env.USER_DRIVE_EMAIL,
+          emailAddress: email,
         },
       });
 
