@@ -37,17 +37,8 @@ export default async function handler(req, res) {
 
     // Respuesta de la IA
     const generatedQuestions = chatResponse.choices[0].message.content;
-
-    // Limpieza inicial de la respuesta
-    const cleanedResponse = generatedQuestions
-      .replace(/\n/g, "") // Eliminar saltos de línea escapados
-      .replace(/\'/g, "'") // Reemplazar comillas simples escapadas
-      .replace(/\"/g, '"'); // Reemplazar comillas dobles escapadas
-
-    console.log("Respuesta limpiada:", cleanedResponse);
-
     // Parsear a objeto JSON
-    const parsedResponse = JSON.parse(cleanedResponse);
+    const parsedResponse = JSON.parse(generatedQuestions);
 
     // Devolver el array con solo las dos posiciones
     return res.status(200).json(parsedResponse);

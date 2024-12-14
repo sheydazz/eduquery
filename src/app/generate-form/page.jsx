@@ -14,33 +14,6 @@ const GenerateForm = () => {
     setFormData(data);
   };
 
-  //parsear preguntas para que tenga un formato adecuado
-  // const parseQuestions = () => {
-  //   try {
-  //     if (!questions || Object.keys(questions).length === 0) {
-  //       console.error('NO hay preguntas');
-  //       return [];
-  //     }
-  
-  //     const questionObject = Object.values(questions);
-  //     console.log('Question Object:', questionObject);
-  
-  //     const questionForm = questionObject[0];
-  //     console.log('Question Form:', questionForm);
-  
-  //     const questionArray = JSON.parse(questionForm);
-  //     console.log('Parsed Question Array:', questionArray);
-  
-  //     //devuelve un arry con la infromacion de las preguntas
-  //     return questionArray[0][1]
-  //   } catch (error) {
-  //     console.error("Error parsing questions:", error);
-  //     return [];
-  //   }
-  // };
-
-  // const parsedQuestions = parseQuestions();
-
   return (
     <div className="w-full h-full bg-gray-100 flex flex-col">
       <div className="w-full h-32 bg-white shadow-lg flex items-center justify-center mb-[40px]">
