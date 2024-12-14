@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState } from "react";
 const FormContext = createContext(); 
 
 export const FormsProvider = ({ children }) => {
-  const [questions, setQuestions] = useState(null);
+  const [questions, setQuestions] = useState([]);
 
   return (
     <FormContext.Provider value={{ questions, setQuestions }}>
