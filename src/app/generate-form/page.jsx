@@ -6,6 +6,7 @@ import QuestionInfoCard from "@/components/questionInfoCard";
 import { useState } from "react";
 import { useForm } from "@/context/Form";
 
+
 const GenerateForm = () => {
   const { questions } = useForm();
   const [formData, setFormData] = useState(null);
@@ -20,19 +21,25 @@ const GenerateForm = () => {
         <h1 className="text-4xl text-blue-700 p-10 font-bold ">Formulario generado ✨</h1>
       </div>
 
-      <div className="flex gap-[40px] flex-wrap pl-4 pr-4 justify-center">
-        {questions[1].map((question, index) => (
-          <QuestionInfoCard 
-            key={index} 
-            generatedQuestion={question} 
-            index={index + 1} 
-          />
-        ))}
-      </div>
+      {questions.length === 0 ? (
 
-      <FormCreator onFormCreated={handleFormCreated} />
+        <div className="w-full max-w-md mx-auto px-4 py-8 text-center">
+          <p className="text-blue-700 p-10 font-bold">No se han generado preguntas.</p>
 
-      {formData && <FormLink formData={formData} />}
+        </div>
+      ) : (
+        <div className="flex gap-[40px] flex-wrap pl-4 pr-4 justify-center">
+          {questions.map((question, index) => (
+            <QuestionInfoCard 
+              key={index} 
+              generatedQuestion={question} 
+              index={index + 1} 
+            />
+          ))}
+          <FormCreator onFormCreated={handleFormCreated} />
+          {formData && <FormLink formData={formData} />}
+        </div>
+      )}
     </div>
   );
 };
