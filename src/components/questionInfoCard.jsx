@@ -11,21 +11,25 @@ const QuestionInfoCard = ({ generatedQuestion, index }) => {
 
   return (
     <div
-      className={`card-container flex flex-col border-gray-200 bg-white p-[20px] max-w-[400px] shadow-lg border rounded-[20px] transition-opacity duration-500 ease-out ${
-        isVisible ? "animate-fadeInUp" : "opacity-0"
+      className={`card-container flex flex-col border-gray-200 bg-gradient-to-r from-purple-150 via-white to-blue-150 p-[20px] max-w-[400px] shadow-2xl border rounded-[20px] transform transition-transform duration-500 ease-out ${
+        isVisible ? "animate-fadeInUp scale-100" : "opacity-0 scale-95"
       }`}
     >
-      <div>
-        <div className="question-name text-xl font-bold flex flex-wrap text-purple-600">
+      <div className="card-content">
+        <div className="question-name text-2xl font-extrabold flex flex-wrap text-purple-700 mb-4">
           <p>{generatedQuestion.title}</p>
         </div>
-        {generatedQuestion.options.map((option, j) => (
-          <div key={j} className="question-response flex flex-col gap-[10px]">
-            <span className="text-blue-500 mt-3">
-              {j + 1}. {option}
-            </span>
-          </div>
-        ))}
+        <div className="question-options space-y-3">
+          {generatedQuestion.options.map((option, j) => (
+            <div
+              key={j}
+              className="question-response flex items-start gap-2 text-blue-600"
+            >
+              <span className="font-medium">{j + 1}.</span>
+              <span>{option}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

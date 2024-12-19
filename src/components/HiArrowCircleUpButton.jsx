@@ -7,8 +7,8 @@ const HiArrowCircleUpButton = ({ onClick }) => {
       style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
       onClick={onClick} // Lógica manejada por el padre
     >
-      <HiArrowCircleUp size={25} style={{ marginRight: "10px" }} />
-      <span>+</span>
+      <HiArrowCircleUp size={30} style={{ marginRight: "1px" }} />
+      <span></span>
     </div>
   );
 };
