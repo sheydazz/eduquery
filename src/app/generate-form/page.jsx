@@ -5,7 +5,7 @@ import FormLink from "@/components/FormLink";
 import QuestionInfoCard from "@/components/questionInfoCard";
 import { useState } from "react";
 import { useForm } from "@/context/Form";
-
+import Image from "next/image";
 const GenerateForm = () => {
   const { questions } = useForm();
   const [formData, setFormData] = useState(null);
@@ -15,10 +15,15 @@ const GenerateForm = () => {
   };
 
   return (
-    <div className="w-full h-full bg-gray-100 flex flex-col">
-      <div className="w-full h-32 bg-white shadow-lg flex items-center justify-center mb-[40px]">
-        <h1 className="text-4xl text-blue-700 p-10 font-bold ">
-          Formulario generado ✨
+    <div className="w-full h-[100vh] bg-[url('/assets/bgGenerateForm.png')] flex flex-col">
+      <div className="w-full h-[130px] bg-white shadow-lg flex items-center mb-[40px]">
+        <Image 
+        src="/assets/isologo.png"
+        width={200}
+        height={200}
+        alt="Descripción de la imagen"/>
+        <h1 className="text-3xl text-blue-700  font-bold  pl-0 justify-between">
+          Preguntas generadas ✨
         </h1>
       </div>
 
