@@ -11,7 +11,7 @@ const QuestionInfoCard = ({ generatedQuestion, index }) => {
 
   return (
     <div
-      className={`card-container flex flex-col border-gray-200 bg-gradient-to-r from-purple-150 via-white to-blue-150 p-[20px] max-w-[400px] shadow-2xl border rounded-[20px] transform transition-transform duration-500 ease-out ${
+      className={`card-container flex flex-col border-gray-200 bg-gradient-to-r from-purple-50 via-white to-blue-50 p-[20px] max-w-[400px] shadow-2xl border rounded-[20px] transform transition-transform duration-500 ease-out ${
         isVisible ? "animate-fadeInUp scale-100" : "opacity-0 scale-95"
       }`}
     >
