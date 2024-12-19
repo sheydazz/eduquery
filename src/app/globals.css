@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --background: url("https://i.pinimg.com/736x/cd/1c/75/cd1c75933cf89ec083dba3c056d79ae2.jpg");
   --foreground: #ffffff;
@@ -14,10 +15,18 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: var(--foreground);
-  background: var(--background) no-repeat center center; 
+  background: var(--background) no-repeat center center fixed;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+.main-content {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para los objetos */
+  padding: 20px;
+  border-radius: 10px;
+}
+
