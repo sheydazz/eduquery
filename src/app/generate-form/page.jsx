@@ -15,7 +15,7 @@ const GenerateForm = () => {
   };
 
   return (
-    <div className="w-full h-[100vh] bg-[url('/assets/bgGenerateForm.png')] flex flex-col">
+    <div className="w-full h-[100vh] flex flex-col">
       <div className="w-full h-[130px] bg-white shadow-lg flex items-center mb-[40px]">
         <Image 
         src="/assets/isologo.png"

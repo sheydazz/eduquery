@@ -1,39 +1,38 @@
 "use client";
-import React from "react";
-import { MdDelete } from "react-icons/md";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const QuestionInfoCard = ({ generatedQuestion,index}) => {
+const QuestionInfoCard = ({ generatedQuestion, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    
-    console.log(generatedQuestion.options);
-  
-  }, [generatedQuestion]);
-  
+    const timer = setTimeout(() => setIsVisible(true), index * 200); 
+    return () => clearTimeout(timer);
+  }, [index]);
+
   return (
-    <div className="card-container flex flex-col bg-white p-[20px] max-w-[270px] border-[1px] border-yellow-300 rounded-[20px] shadow-[-6px_8px_23px_-3px_rgba(0,_0,_0,_0.1)]">
-      <div>
-        <div className="question-name text-sm font-bold flex flex-wrap text-purple-600">
+    <div
+      className={`bg-0 card-container flex flex-col border-gray-200 bg-gradient-to-r from-purple-50 via-white to-blue-50 p-[20px] max-w-[350px] shadow-2xl border rounded-[20px] transform transition-transform duration-500 ease-out ${
+        isVisible ? "animate-fadeInUp scale-100" : "opacity-0 scale-95"
+      }`}
+    >
+      <div className="card-content">
+        <div className="question-name text-lg font-extrabold flex flex-wrap text-purple-700 mb-4">
           <p>{generatedQuestion.title}</p>
         </div>
-        {generatedQuestion.options.map((option, j) => (
-          <div key={j} className="question-response flex flex-col gap-[10px]">
-            <div className="flex flex-row  gap-4">
-            <div className="mt-3 bg-yellow-400 rounded-full w-5 h-5 p-[3px] flex justify-center items-center"><span className="text-white">{j + 1}</span></div>
-            <span className="text-blue-500 mt-3 text-xs">
-               {option}
-            </span>
-         
+        <div className="question-options space-y-3">
+          {generatedQuestion.options.map((option, j) => (
+            <div
+              key={j}
+              className="question-response flex items-start gap-2 text-blue-600"
+            >
+              <span className="font-medium">{j + 1}.</span>
+              <span>{option}</span>
             </div>
-           
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
     </div>
   );
 };
 
-
 export default QuestionInfoCard;
-

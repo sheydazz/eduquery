@@ -7,8 +7,8 @@ const HiArrowCircleDownButton = ({ onClick }) => {
       style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
       onClick={onClick} // Lógica manejada por el padre
     >
-      <HiArrowCircleDown size={25} style={{ marginRight: "10px" }} />
-      <span> -</span>
+      <HiArrowCircleDown size={30} style={{ marginRight: "10px" }} />
+      <span></span>
     </div>
   );
 };
