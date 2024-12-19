@@ -82,45 +82,48 @@ const FormCreator = ({ onFormCreated }) => {
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
-        <>
+        // El botón se muestra solo si no está cargando
+        !formResponse && ( // También se asegura que el formulario no haya sido creado aún
           <button
             onClick={handleOpenModal}
-            className="bg-violet-700 m-5 border rounded-full w-52 h-16 text-white flex justify-center items-center text-xl gap-2"
+            className=" m-5 border rounded-2xl w-52 h-16 text-white flex justify-center items-center text-xl gap-2  font-semibold shadow-md bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all duration-300"
           >
-            Generar <SiGoogleforms />
+            Generar Forms <SiGoogleforms />
           </button>
-        </>
+        )
       )}
-       {isModalOpen && (
-            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
-              <div className="bg-white rounded-lg p-6 w-80">
-                <h2 className="text-lg font-semibold mb-4">Ingresa tu correo</h2>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg p-2 mb-4 text-black"
-                  placeholder="correo@example.com"
-                />
-                <div className="flex justify-end gap-2">
-                  <button
-                    onClick={handleCloseModal}
-                    className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg"
-                  >
-                    Cancelar
-                  </button>
-                  <button
-                    onClick={handleCreateForm}
-                    className="bg-violet-700 text-white px-4 py-2 rounded-lg"
-                  >
-                    Generar
-                  </button>
-                </div>
-              </div>
+  
+      {isModalOpen && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg p-6 w-80">
+            <h2 className="text-lg font-semibold mb-4">Ingresa tu correo</h2>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-2 mb-4 text-black"
+              placeholder="correo@example.com"
+            />
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={handleCloseModal}
+                className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={handleCreateForm}
+                className="bg-violet-700 text-white px-4 py-2 rounded-lg"
+              >
+                Generar
+              </button>
             </div>
-          )}
+          </div>
+        </div>
+      )}
     </div>
   );
+  
 };
 
 export default FormCreator;

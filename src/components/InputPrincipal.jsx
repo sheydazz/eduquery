@@ -5,11 +5,12 @@ const InputPrincipal = ({ inputValue, setInputValue }) => {
     <div>
       <input
         type="text"
-        placeholder="Ingresa tu prompt"
-        className="opacity-30 border-none rounded-md text-black p-4 w-96"
+        placeholder="escribe un tema "
+        className=" border rounded-md text-black p-4 w-96"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
+      
     </div>
   );
 };
